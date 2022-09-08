@@ -19,16 +19,10 @@
 <img id="qiqi" src="image/qiqi.png" style="position: relative;left: 500px;top: 500px;" width="110px" height="120px" >
 <script>
   let element = document.getElementById("hutao")
-  let elementQiqi = document.getElementById("qiqi")
   // let width = window.innerWidth
   // let height = window.innerHeight
   // element.style.left = (getRndInteger(0, width) + 'px')
   // element.style.top = (getRndInteger(0, height) + 'px')
-  element.style.left = (Math.floor(Math.random() * 130)*10) + 'px';
-  element.style.top = (Math.floor(Math.random() * 60)*10) + 'px';
-  elementQiqi.style.left = (Math.floor(Math.random() * 130)*10) + 'px';
-  elementQiqi.style.top = (Math.floor(Math.random() * 60)*10) + 'px';
-
 
 
   let qiqi = document.getElementById('qiqi');
@@ -36,6 +30,12 @@
   let x2 = Number(qiqi.width)
   let y1 = parseInt(qiqi.style.top)
   let y2 = Number(qiqi.height)
+
+  element.style.left = (Math.floor(Math.random() * (window.innerWidth/10 - 30))*10) + 'px';
+  element.style.top = (Math.floor(Math.random() * (window.innerHeight/10 - 30))*10) + 'px';
+  qiqi.style.left = (Math.floor(Math.random() * (window.innerWidth/10 - 30))*10) + 'px';
+  qiqi.style.top = (Math.floor(Math.random() * (window.innerHeight/10 - 30))*10) + 'px';
+
 
   function upArrowPressed() {
     let element = document.getElementById("hutao");
@@ -57,19 +57,35 @@
   function moveSelection(evt) {
     switch (evt.keyCode) {
       case 37:
-        leftArrowPressed();
+        if(parseInt(element.style.left) >= 0){
+          leftArrowPressed();
+        } else {
+          return
+        }
         check()
         break;
       case 39:
-        rightArrowPressed();
+        if((parseInt(element.style.left) + parseInt(element.width)) <= window.innerWidth){
+          rightArrowPressed();
+        } else {
+          return;
+        }
         check()
         break;
       case 38:
-        upArrowPressed();
+        if(parseInt(element.style.top) >= 0){
+          upArrowPressed();
+        } else {
+          return;
+        }
         check()
         break;
       case 40:
-        downArrowPressed();
+        if((parseInt(element.style.top) + parseInt(element.height) <= window.innerHeight)){
+          downArrowPressed();
+        } else {
+          return;
+        }
         check()
         break;
     }
@@ -89,7 +105,7 @@
     console.log('y2----->',y2)
     console.log('x1+x2------>',x1+x2)
     console.log('y1+y2------>',y1+y2)
-    if(((x1+80 <= parseInt(element.style.left)) && (parseInt(element.style.left) <= x1+x2+50))
+    if(((x1+80 <= parseInt(element.style.left)) && (parseInt(element.style.left) <= x1+x2+70))
             && (y1-80 <= parseInt(element.style.top)) && (parseInt(element.style.top) <= y1+y2-80)){
       alert('Hoàn Thành')
       location.reload()
