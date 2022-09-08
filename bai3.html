@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập năm sinh của bạn</h1>
+<input id="age" type="text">
+<button onclick="Tuoi()">Click!</button>
+<h1 id="hienThi"></h1>
+</body>
+<script>
+function Tuoi(){
+  let age = +document.getElementById('age').value
+  let can = age%10
+  let chi = age%12
+  let hienThi1 = ''
+  let hienThi2 = ''
+
+  switch (can){
+    case 0:
+      hienThi1 = 'CANH'
+          break
+    case 1:
+      hienThi1 = 'TÂN'
+          break
+    case 2:
+      hienThi1 = 'NHÂM'
+      break
+    case 3:
+      hienThi1 = 'QUÝ'
+      break
+    case 4:
+      hienThi1 = 'GIÁP'
+      break
+    case 5:
+      hienThi1 = 'ẤT'
+      break
+    case 6:
+      hienThi1 = 'BÍNH'
+      break
+    case 7:
+      hienThi1 = 'ĐINH'
+      break
+    case 8:
+      hienThi1 = 'MẬU'
+      break
+    case 9:
+      hienThi1 = 'KỶ'
+      break
+  }
+
+  switch (chi){
+    case 0:
+      hienThi2 = 'THÂN'
+          break
+    case 1:
+      hienThi2 = 'DẬU'
+      break
+    case 2:
+      hienThi2 = 'TUẤT'
+      break
+    case 3:
+      hienThi2 = 'HỢI'
+      break
+    case 4:
+      hienThi2 = 'TÝ'
+      break
+    case 5:
+      hienThi2 = 'SỬU'
+      break
+    case 6:
+      hienThi2 = 'DẦN'
+      break
+    case 7:
+      hienThi2 = 'MÃO'
+      break
+    case 8:
+      hienThi2 = 'THÌN'
+      break
+    case 9:
+      hienThi2 = 'TỴ'
+      break
+    case 10:
+      hienThi2 = 'NGỌ'
+      break
+    case 11:
+      hienThi2 = 'MÙI'
+      break
+  }
+
+  document.getElementById('hienThi').innerText = hienThi1 +' '+ hienThi2
+}
+</script>
+</html>

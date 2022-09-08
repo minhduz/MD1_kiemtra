@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập 3 cạnh của tam giác: </h1>
+<label>Cạnh a</label>
+<input id="canhA" type="number"><br>
+<label>Cạnh b</label>
+<input id="canhB" type="number"><br>
+<label>Cạnh c</label>
+<input id="canhC" type="number"><br>
+<button onclick="checkTamGiac()">Kiểm tra</button>
+<h1 id="hienThi"></h1>
+</body>
+<script>
+function checkTamGiac(){
+  let a = +document.getElementById('canhA').value
+  let b = +document.getElementById('canhB').value
+  let c = +document.getElementById('canhC').value
+
+  if (a+b>c && a+c>b && b+c>a){
+    document.getElementById('hienThi').innerText = '3 cạnh trên là 3 cạnh của Tam Giác Thường'
+  } else {
+    alert('3 cạnh trên không phải 3 cạnh của tam giác')
+      location.reload()
+  }
+
+  if((a*a + b*b === c*c) || (a*a + c*c === b*b) || (b*b + c*c === a*a)){
+    document.getElementById('hienThi').innerText = '3 cạnh trên là 3 cạnh của Tam Giác Vuông'
+  }
+}
+
+</script>
+</html>
